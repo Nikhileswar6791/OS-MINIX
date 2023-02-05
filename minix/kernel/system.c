@@ -631,7 +631,7 @@ int sched_proc(struct proc *p,
 		return(EINVAL);
 	int allotted_quantum = p->p_quantum_size_ms;
 	int used_quantum = p->p_quantum_size_ms-cpu_time_2_ms(p->p_cpu_time_left);
-	printf("allotted quanta: %d and used quanta: %d\n",allotted_quantum,used_quantum);
+	printf("allotted time slice(quanta): %d and time slice used(quanta): %d\n",allotted_quantum,used_quantum);
 #ifdef CONFIG_SMP
 	if ((cpu < 0 && cpu != -1) || (cpu > 0 && (unsigned) cpu >= ncpus))
 		return(EINVAL);
