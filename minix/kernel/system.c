@@ -629,7 +629,7 @@ int sched_proc(struct proc *p,
 
 	if (quantum < 1 && quantum != -1)
 		return(EINVAL);
-
+        printf("Allotted Quantum is: %d, Used Quantum is: %d\n", p->p_quantum_size_ms, p->p_quantum_size_ms-cpu_time_2_ms(p->p_cpu_time_left));
 #ifdef CONFIG_SMP
 	if ((cpu < 0 && cpu != -1) || (cpu > 0 && (unsigned) cpu >= ncpus))
 		return(EINVAL);
